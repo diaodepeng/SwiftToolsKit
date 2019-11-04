@@ -11,8 +11,8 @@ import UIKit
 
 extension TypeWrapperProtocol where WrappedType: UIButton {
     
-    // MARK: - 文字图片置换方法 (左title 右image)
-    /// 文字图片置换方法 (左title 右image) 在每次设置title和image之后调用
+    // MARK: - 文字图片置换方法 (左 title 右 image)
+    /// 文字图片置换方法 (左 title 右 image) 在每次设置 title 和 image 之后调用
     public func leftTitleAndRightImageFits() {
         let imageWidth = wrappedValue.imageView?.width
         let labelWidth = wrappedValue.titleLabel?.width
@@ -23,15 +23,15 @@ extension TypeWrapperProtocol where WrappedType: UIButton {
         }
     }
     
-    // MARK: - 文字图片置换方法 (上image 下title)
-    /// 文字图片置换方法 (上image 下title) 在每次设置title和image之后调用
+    // MARK: - 文字图片置换方法 (上 image 下 title)
+    /// 文字图片置换方法 (上 image 下 title) 在每次设置 title 和 image 之后调用
     public func topImageAndBottomTitleFits() {
         self.topImageAndBottomTitleFitsWith(space: 6.0)
     }
     
-    /// 文字图片置换方法 (上image 下title) 在每次设置title和image之后调用
+    /// 文字图片置换方法 (上 image 下 title) 在每次设置 title 和 image 之后调用
     ///
-    /// - Parameter space: title与image之间的距离
+    /// - Parameter space: title 与 image 之间的距离
     public func topImageAndBottomTitleFitsWith(space: CGFloat) {
         let imageSize = wrappedValue.imageView?.frame.size
         let titleSize = wrappedValue.titleLabel?.frame.size

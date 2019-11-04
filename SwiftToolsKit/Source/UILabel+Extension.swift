@@ -38,7 +38,10 @@ extension TypeWrapperProtocol where WrappedType: UILabel {
     ///   - lineSpacing: 行间距
     ///   - text: 文字
     /// - Returns: 高度
-    public func getSpaceLabelHeight(byWith width: CGFloat, font: UIFont, lineSpacing: CGFloat, text: String) -> CGFloat{
+    public func getSpaceLabelHeight(byWith width: CGFloat,
+                                    font: UIFont,
+                                    lineSpacing: CGFloat,
+                                    text: String) -> CGFloat {
         
         //设置label行距
         let paragraphStyle = NSMutableParagraphStyle()

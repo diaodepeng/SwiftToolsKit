@@ -9,6 +9,6 @@
 #ifndef SwiftToolsKit_Bridging_Header_h
 #define SwiftToolsKit_Bridging_Header_h
 
-#import <CommonCrypto/CommonCrypto.h>
+//#import <CommonCrypto/CommonCrypto.h>
 
 #endif /* SwiftToolsKit_Bridging_Header_h */

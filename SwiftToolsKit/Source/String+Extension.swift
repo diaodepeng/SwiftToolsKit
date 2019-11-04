@@ -9,25 +9,8 @@
 import Foundation
 import UIKit
 
-extension String: NamespaceWrappable { }
+extension String: NamespaceWrappable {}
 extension TypeWrapperProtocol where WrappedType == String {
-    
-    // MARK: - 时间戳转时间字符串
-    /// 时间戳转时间字符串
-    ///
-    /// - Parameters:
-    ///   - timeInterval: 时间戳
-    ///   - format: 转换的时间格式
-    /// - Returns: 转换完成之后的时间字符串
-    public static func timeString(timeInterval: TimeInterval, format: String) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: "en_US")
-        dateFormatter.dateFormat = format
-        
-        // 秒格式10位, 毫秒格式13位
-        let interval = timeInterval > 10000000000 ? timeInterval * 0.001 : timeInterval
-        return dateFormatter.string(from: Date(timeIntervalSince1970: interval))
-    }
     
     /// 字符串转时间Date
     ///
@@ -38,6 +21,23 @@ extension TypeWrapperProtocol where WrappedType == String {
         dateFormatter.locale = Locale.init(identifier: "en_US")
         dateFormatter.dateFormat = format
         return dateFormatter.date(from: wrappedValue)
+    }
+    
+    // MARK: - 时间戳转时间字符串
+    /// 时间戳转时间字符串
+    ///
+    /// - Parameters:
+    ///   - timeInterval: 时间戳
+    ///   - format: 转换的时间格式
+    /// - Returns: 转换完成之后的时间字符串
+    public static func toDateString(timeInterval: TimeInterval, format: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US")
+        dateFormatter.dateFormat = format
+        
+        // 秒格式10位, 毫秒格式13位
+        let interval = timeInterval > 10000000000 ? timeInterval * 0.001 : timeInterval
+        return dateFormatter.string(from: Date(timeIntervalSince1970: interval))
     }
     
     // MARK: - 中文转小写拼音(不带音标)
@@ -62,7 +62,7 @@ extension TypeWrapperProtocol where WrappedType == String {
         guard !wrappedValue.isEmpty else { return "#" }
         
         let upperStr = wrappedValue.uppercased()
-        return (upperStr.st[0..<1] >= "A" && upperStr.st[0..<1] <= "Z") ? upperStr.st[0..<1] : "#"
+        return (upperStr.stk[0..<1] >= "A" && upperStr.stk[0..<1] <= "Z") ? upperStr.stk[0..<1] : "#"
     }
     
     // MARK: - 获取文本高度

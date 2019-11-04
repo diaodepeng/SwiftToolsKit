@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-extension UIImage: NamespaceWrappable { }
+extension UIImage: NamespaceWrappable {}
 extension TypeWrapperProtocol where WrappedType: UIImage {
     
     // MARK: - 根据颜色创建图片
@@ -20,7 +20,6 @@ extension TypeWrapperProtocol where WrappedType: UIImage {
     /// - Returns: 创建的图片
     public static func createImage(with color: UIColor) -> UIImage? {
         let rect = CGRect(x: 0.0, y: 0.0, width: 1.0, height: 1.0)
-        
         UIGraphicsBeginImageContext(rect.size)
         
         let context = UIGraphicsGetCurrentContext()
@@ -28,9 +27,7 @@ extension TypeWrapperProtocol where WrappedType: UIImage {
         context?.fill(rect)
         
         let theImage = UIGraphicsGetImageFromCurrentImageContext()
-        
         UIGraphicsEndImageContext()
-        
         return theImage
     }
     
@@ -49,9 +46,7 @@ extension TypeWrapperProtocol where WrappedType: UIImage {
         context?.fill(rect)
         
         let theImage = UIGraphicsGetImageFromCurrentImageContext()
-        
         UIGraphicsEndImageContext()
-        
         return theImage
     }
     

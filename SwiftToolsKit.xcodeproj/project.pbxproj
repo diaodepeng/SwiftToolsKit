@@ -26,7 +26,6 @@
 		131A964223294D660042C674 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131A963323294D660042C674 /* String+Extension.swift */; };
 		131A964523294D660042C674 /* ToolsNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131A963623294D660042C674 /* ToolsNamespace.swift */; };
 		131A964623294D660042C674 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131A963723294D660042C674 /* Enum.swift */; };
-		131A964723294D660042C674 /* RoundedCornersImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131A963823294D660042C674 /* RoundedCornersImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,10 +71,7 @@
 		131A963323294D660042C674 /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		131A963623294D660042C674 /* ToolsNamespace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolsNamespace.swift; sourceTree = "<group>"; };
 		131A963723294D660042C674 /* Enum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
-		131A963823294D660042C674 /* RoundedCornersImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedCornersImageView.swift; sourceTree = "<group>"; };
 		131A964F23294F390042C674 /* SwiftToolsKit-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftToolsKit-Bridging-Header.h"; sourceTree = "<group>"; };
-		131A9658232958950042C674 /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
-		131A965A232958950042C674 /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,7 +122,6 @@
 		131A95F823294CF00042C674 /* SwiftToolsKit */ = {
 			isa = PBXGroup;
 			children = (
-				131A9656232958950042C674 /* CommonCrypto */,
 				131A962823294D660042C674 /* Source */,
 				131A962723294D3F0042C674 /* SupportingFiles */,
 			);
@@ -168,7 +163,6 @@
 		131A962823294D660042C674 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				131A962923294D660042C674 /* Encryption */,
 				131A963623294D660042C674 /* ToolsNamespace.swift */,
 				131A963723294D660042C674 /* Enum.swift */,
 				131A962B23294D660042C674 /* Global.swift */,
@@ -180,42 +174,9 @@
 				131A963123294D660042C674 /* UIView+Extension.swift */,
 				131A963223294D660042C674 /* UIImage+Extension.swift */,
 				131A963323294D660042C674 /* String+Extension.swift */,
-				131A963823294D660042C674 /* RoundedCornersImageView.swift */,
-			);
-			path = Source;
-			sourceTree = "<group>";
-		};
-		131A962923294D660042C674 /* Encryption */ = {
-			isa = PBXGroup;
-			children = (
 				131A962A23294D660042C674 /* String+Encryption.swift */,
 			);
-			path = Encryption;
-			sourceTree = "<group>";
-		};
-		131A9656232958950042C674 /* CommonCrypto */ = {
-			isa = PBXGroup;
-			children = (
-				131A9657232958950042C674 /* iphoneos */,
-				131A9659232958950042C674 /* iphonesimulator */,
-			);
-			path = CommonCrypto;
-			sourceTree = "<group>";
-		};
-		131A9657232958950042C674 /* iphoneos */ = {
-			isa = PBXGroup;
-			children = (
-				131A9658232958950042C674 /* module.modulemap */,
-			);
-			path = iphoneos;
-			sourceTree = "<group>";
-		};
-		131A9659232958950042C674 /* iphonesimulator */ = {
-			isa = PBXGroup;
-			children = (
-				131A965A232958950042C674 /* module.modulemap */,
-			);
-			path = iphonesimulator;
+			path = Source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -356,7 +317,6 @@
 				131A95FA23294CF00042C674 /* AppDelegate.swift in Sources */,
 				131A964223294D660042C674 /* String+Extension.swift in Sources */,
 				131A963D23294D660042C674 /* UILabel+Extension.swift in Sources */,
-				131A964723294D660042C674 /* RoundedCornersImageView.swift in Sources */,
 				131A963923294D660042C674 /* String+Encryption.swift in Sources */,
 				131A963E23294D660042C674 /* UIButton+Extension.swift in Sources */,
 				131A964623294D660042C674 /* Enum.swift in Sources */,

@@ -11,16 +11,15 @@
 import UIKit
 import Security
 
-extension UIDevice: NamespaceWrappable { }
+extension UIDevice: NamespaceWrappable {}
 extension TypeWrapperProtocol where WrappedType: UIDevice {
     
-    /// 获取设备UUID(同组设备唯一)
+    /// 获取设备 UUID (同组设备唯一)
     ///
-    /// - Returns: UUID字符串
-    public static func getUUIDString() -> String {
+    /// - Returns: UUID 字符串
+    public static func getUUIDString() -> String? {
         
         // 查询是否存在已存储的UUID
-        
         var searchResult: AnyObject?
         let searchStatus = SecItemCopyMatching(keychainSearchAttributes as CFDictionary, &searchResult)
         
@@ -28,18 +27,17 @@ extension TypeWrapperProtocol where WrappedType: UIDevice {
             if let data = searchResult as? Data, let uuidString = String(data: data, encoding: .utf8) {
                 return uuidString
             } else {
-                return ""
+                return nil
             }
         }
         
         // 获取UUID并储存
-        
-        guard let tmpUUID = UIDevice.current.identifierForVendor?.uuidString else { return "" }
+        guard let tmpUUID = UIDevice.current.identifierForVendor?.uuidString else { return nil }
         
         let uuidString = tmpUUID.replacingOccurrences(of: "-", with: "")
         var attributes = keychainBaseAttributes
         
-        guard let uuidData = uuidString.data(using: .utf8) else { return "" }
+        guard let uuidData = uuidString.data(using: .utf8) else { return nil }
         
         attributes[kSecValueData as String] = uuidData
         let status = SecItemAdd(attributes as CFDictionary, nil)
@@ -49,7 +47,7 @@ extension TypeWrapperProtocol where WrappedType: UIDevice {
         } else if status == errSecDuplicateItem, self.update(valueData: uuidData) == true {
             return uuidString
         } else {
-            return ""
+            return nil
         }
         
     }
@@ -69,30 +67,22 @@ extension TypeWrapperProtocol where WrappedType: UIDevice {
     /// Keychain字典搜索配置
     private static var keychainSearchAttributes: [String: Any] {
         get {
-            
-            return [
-                kSecMatchLimit as String : kSecMatchLimitOne,
-                kSecReturnData as String : kCFBooleanTrue!,
-                kSecClass as String : kSecClassGenericPassword,
-                kSecAttrService as String : "com.SwiftyTools",
-                kSecAttrAccount as String : "com.SwiftyTools",
-                kSecAttrAccessible as String : kSecAttrAccessibleAfterFirstUnlock
-            ]
-            
+            return [kSecMatchLimit as String : kSecMatchLimitOne,
+                    kSecReturnData as String : kCFBooleanTrue!,
+                    kSecClass as String : kSecClassGenericPassword,
+                    kSecAttrService as String : "com.SwiftyTools",
+                    kSecAttrAccount as String : "com.SwiftyTools",
+                    kSecAttrAccessible as String : kSecAttrAccessibleAfterFirstUnlock]
         }
     }
     
     /// Keychain字典基础配置
     private static var keychainBaseAttributes: [String: Any] {
         get {
-            
-            return [
-                kSecClass as String : kSecClassGenericPassword,
-                kSecAttrService as String : "com.SwiftyTools",
-                kSecAttrAccount as String : "com.SwiftyTools",
-                kSecAttrAccessible as String : kSecAttrAccessibleAfterFirstUnlock
-            ]
-            
+            return [kSecClass as String : kSecClassGenericPassword,
+                    kSecAttrService as String : "com.SwiftyTools",
+                    kSecAttrAccount as String : "com.SwiftyTools",
+                    kSecAttrAccessible as String : kSecAttrAccessibleAfterFirstUnlock]
         }
     }
 }

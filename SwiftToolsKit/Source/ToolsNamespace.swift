@@ -8,25 +8,6 @@
 
 import Foundation
 
-public protocol NamespaceWrappable {
-    associatedtype WrapperType
-    var st: WrapperType { get }
-    static var st: WrapperType.Type { get }
-}
-
-public extension NamespaceWrappable {
-    var st: NamespaceWrapper<Self> {
-        get {
-            return NamespaceWrapper(value: self)
-        }
-    }
-    static var st: NamespaceWrapper<Self>.Type {
-        get {
-            return NamespaceWrapper.self
-        }
-    }
-}
-
 public protocol TypeWrapperProtocol {
     associatedtype WrappedType
     var wrappedValue: WrappedType { get set }
@@ -37,5 +18,24 @@ public struct NamespaceWrapper<T>: TypeWrapperProtocol {
     public var wrappedValue: T
     public init(value: T) {
         self.wrappedValue = value
+    }
+}
+
+public protocol NamespaceWrappable {
+    associatedtype WrapperType
+    var stk: WrapperType { get }
+    static var stk: WrapperType.Type { get }
+}
+
+public extension NamespaceWrappable {
+    var stk: NamespaceWrapper<Self> {
+        get {
+            return NamespaceWrapper(value: self)
+        }
+    }
+    static var stk: NamespaceWrapper<Self>.Type {
+        get {
+            return NamespaceWrapper.self
+        }
     }
 }

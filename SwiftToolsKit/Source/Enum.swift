@@ -9,7 +9,7 @@
 import Foundation
 
 // 日期格式枚举
-public enum TimeFormatType: String {
+public enum DateFormatType: String {
     case normal             = "yyyy-MM-dd HH:mm:ss"
     case yyMdHm             = "yy-MM-dd HH:mm"
     case yyyyMdHm           = "yyyy-MM-dd HH:mm"
@@ -29,27 +29,9 @@ public enum TimeFormatType: String {
     case yMdChangeSeparator = "yyyy.MM.dd"
 }
 
+// AES 加密类型
 public enum AESKeySizeType: Int {
     case AES128Type = 16
     case AES192Type = 24
     case AES256Type = 32
-}
-
-public enum SandboxPathType {
-    case documents
-    case caches
-    case temp
-    
-    public var directory: String {
-        get {
-            switch self {
-            case .documents:
-                return NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).first ?? ""
-            case .caches:
-                return NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.cachesDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).first ?? ""
-            case .temp:
-                return NSTemporaryDirectory()
-            }
-        }
-    }
 }
