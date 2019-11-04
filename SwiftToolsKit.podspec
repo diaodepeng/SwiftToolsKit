@@ -14,12 +14,5 @@ Pod::Spec.new do |spec|
 	spec.source        = { :git => "https://github.com/diaodepeng/SwiftToolsKit.git", :tag => spec.version }
 
 	spec.source_files  = "SwiftToolsKit/Source/**/*.swift"
-
-	spec.preserve_paths        = 'SwiftToolsKit/CommonCrypto/**/*'
-	spec.pod_target_xcconfig   = {
-		'SWIFT_INCLUDE_PATHS[sdk=iphoneos*]'         => '$(PODS_ROOT)/SwiftToolsKit/CommonCrypto/iphoneos',
-		'SWIFT_INCLUDE_PATHS[sdk=iphonesimulator*]'  => '$(PODS_ROOT)/SwiftToolsKit/CommonCrypto/iphonesimulator',
-		'SWIFT_VERSION' => '5.0'
-	}
 	
 end
