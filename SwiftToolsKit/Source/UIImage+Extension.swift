@@ -9,8 +9,9 @@
 import Foundation
 import UIKit
 
-extension UIImage: NamespaceWrappable {}
-extension TypeWrapperProtocol where WrappedType: UIImage {
+extension UIImage: STKNamespaceWrappable { }
+
+extension STKTypeWrapperProtocol where STKWrappedType: UIImage {
     
     // MARK: - 根据颜色创建图片
     

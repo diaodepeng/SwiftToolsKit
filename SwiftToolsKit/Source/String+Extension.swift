@@ -9,8 +9,9 @@
 import Foundation
 import UIKit
 
-extension String: NamespaceWrappable {}
-extension TypeWrapperProtocol where WrappedType == String {
+extension String: STKNamespaceWrappable { }
+
+extension STKTypeWrapperProtocol where STKWrappedType == String {
     
     /// 字符串转时间Date
     ///
@@ -20,7 +21,7 @@ extension TypeWrapperProtocol where WrappedType == String {
         let dateFormatter = DateFormatter.init()
         dateFormatter.locale = Locale.init(identifier: "en_US")
         dateFormatter.dateFormat = format
-        return dateFormatter.date(from: wrappedValue)
+        return dateFormatter.date(from: stkWrappedValue)
     }
     
     // MARK: - 时间戳转时间字符串
@@ -45,10 +46,10 @@ extension TypeWrapperProtocol where WrappedType == String {
     ///
     /// - Returns: 拼音
     public func toPinyin() -> String {
-        guard !wrappedValue.isEmpty, !wrappedValue.isEmpty else { return "" }
+        guard !stkWrappedValue.isEmpty, !stkWrappedValue.isEmpty else { return "" }
         
         // 把汉字转为拼音, 去掉拼音的音标
-        let mutableString = NSMutableString(string: wrappedValue)
+        let mutableString = NSMutableString(string: stkWrappedValue)
         CFStringTransform(mutableString, nil, kCFStringTransformToLatin, false)
         CFStringTransform(mutableString, nil, kCFStringTransformStripDiacritics, false)
         return String(mutableString)
@@ -59,9 +60,9 @@ extension TypeWrapperProtocol where WrappedType == String {
     ///
     /// - Returns: 大写字母
     public func firstLetterUpper() -> String {
-        guard !wrappedValue.isEmpty else { return "#" }
+        guard !stkWrappedValue.isEmpty else { return "#" }
         
-        let upperStr = wrappedValue.uppercased()
+        let upperStr = stkWrappedValue.uppercased()
         return (upperStr.stk[0..<1] >= "A" && upperStr.stk[0..<1] <= "Z") ? upperStr.stk[0..<1] : "#"
     }
     
@@ -73,10 +74,10 @@ extension TypeWrapperProtocol where WrappedType == String {
     ///   - font: 字号
     /// - Returns: 测算高度
     public func getStringHeight(byWidth width: Float, attributes: [NSAttributedString.Key : Any]? = nil) -> CGFloat {
-        let rect: CGRect = wrappedValue.boundingRect(with: CGSize(width: Double(width), height: Double(MAXFLOAT)),
-                                                     options: [.usesLineFragmentOrigin],
-                                                     attributes: attributes,
-                                                     context: nil)
+        let rect: CGRect = stkWrappedValue.boundingRect(with: CGSize(width: Double(width), height: Double(MAXFLOAT)),
+                                                        options: [.usesLineFragmentOrigin],
+                                                        attributes: attributes,
+                                                        context: nil)
         
         return rect.height
     }
@@ -89,10 +90,10 @@ extension TypeWrapperProtocol where WrappedType == String {
     ///   - font: 字号
     /// - Returns: 测算宽度
     public func getStringWidth(byHeight height: CGFloat, attributes: [NSAttributedString.Key : Any]? = nil) -> CGFloat {
-        let rect: CGRect = wrappedValue.boundingRect(with: CGSize(width: Double(MAXFLOAT), height: Double(height)),
-                                                     options: [.usesLineFragmentOrigin],
-                                                     attributes: attributes,
-                                                     context: nil)
+        let rect: CGRect = stkWrappedValue.boundingRect(with: CGSize(width: Double(MAXFLOAT), height: Double(height)),
+                                                        options: [.usesLineFragmentOrigin],
+                                                        attributes: attributes,
+                                                        context: nil)
         
         return rect.width
     }
@@ -106,10 +107,10 @@ extension TypeWrapperProtocol where WrappedType == String {
     ///   - maxWidth: 最大宽度
     /// - Returns: 测算宽高
     public func getStringSize(withMaxWidth maxWidth: CGFloat, attributes: [NSAttributedString.Key : Any]? = nil) -> CGSize {
-        let size = wrappedValue.boundingRect(with: CGSize(width: maxWidth,height: 0),
-                                             options: [.usesLineFragmentOrigin, .usesFontLeading],
-                                             attributes: attributes,
-                                             context: nil).size
+        let size = stkWrappedValue.boundingRect(with: CGSize(width: maxWidth,height: 0),
+                                                options: [.usesLineFragmentOrigin, .usesFontLeading],
+                                                attributes: attributes,
+                                                context: nil).size
         
         return size
     }
@@ -120,9 +121,9 @@ extension TypeWrapperProtocol where WrappedType == String {
     /// - Parameter r: 截取范围
     public subscript (r: Range<Int>) -> String {
         get {
-            let startIndex = wrappedValue.index(wrappedValue.startIndex, offsetBy: r.lowerBound)
-            let endIndex = wrappedValue.index(wrappedValue.startIndex, offsetBy: r.upperBound)
-            return String(wrappedValue[startIndex..<endIndex])
+            let startIndex = stkWrappedValue.index(stkWrappedValue.startIndex, offsetBy: r.lowerBound)
+            let endIndex = stkWrappedValue.index(stkWrappedValue.startIndex, offsetBy: r.upperBound)
+            return String(stkWrappedValue[startIndex..<endIndex])
         }
     }
 }

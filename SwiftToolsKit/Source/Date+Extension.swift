@@ -8,8 +8,9 @@
 
 import Foundation
 
-extension Date: NamespaceWrappable {}
-extension TypeWrapperProtocol where WrappedType == Date {
+extension Date: STKNamespaceWrappable { }
+
+extension STKTypeWrapperProtocol where STKWrappedType == Date {
     
     // MARK: - Date 转字符串
     /// Date 转字符串
@@ -20,7 +21,7 @@ extension TypeWrapperProtocol where WrappedType == Date {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale.current
         dateFormatter.dateFormat = style
-        return dateFormatter.string(from: wrappedValue)
+        return dateFormatter.string(from: stkWrappedValue)
     }
     
     // MARK: - 获取本地日期

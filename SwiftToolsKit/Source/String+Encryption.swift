@@ -9,7 +9,7 @@
 import Foundation
 //import CommonCrypto
 
-//extension TypeWrapperProtocol where WrappedType == String {
+//extension STKTypeWrapperProtocol where STKWrappedType == String {
 //
 //    // MARK: - AES加解密
 //

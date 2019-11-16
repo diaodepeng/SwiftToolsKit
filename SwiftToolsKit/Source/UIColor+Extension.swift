@@ -9,8 +9,9 @@
 import Foundation
 import UIKit
 
-extension UIColor: NamespaceWrappable {}
-extension TypeWrapperProtocol where WrappedType: UIColor {
+extension UIColor: STKNamespaceWrappable { }
+
+extension STKTypeWrapperProtocol where STKWrappedType: UIColor {
     
     // MARK: - 获取随机颜色
     /// 获取颜色值 "#XXXXXX"
@@ -18,7 +19,7 @@ extension TypeWrapperProtocol where WrappedType: UIColor {
         var r: CGFloat = 0
         var g: CGFloat = 0
         var b: CGFloat = 0
-        wrappedValue.getRed(&r, green: &g, blue: &b, alpha: nil)
+        stkWrappedValue.getRed(&r, green: &g, blue: &b, alpha: nil)
         return String.init(format: "#%02x%02x%02x", UInt8(r * 255), UInt8(g * 255), UInt8(b * 255))
     }
     

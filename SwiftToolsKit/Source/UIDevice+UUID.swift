@@ -11,8 +11,9 @@
 import UIKit
 import Security
 
-extension UIDevice: NamespaceWrappable {}
-extension TypeWrapperProtocol where WrappedType: UIDevice {
+extension UIDevice: STKNamespaceWrappable { }
+
+extension STKTypeWrapperProtocol where STKWrappedType: UIDevice {
     
     /// 获取设备 UUID (同组设备唯一)
     ///

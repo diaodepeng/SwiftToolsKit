@@ -27,7 +27,7 @@ extension UILabel {
     
 }
 
-extension TypeWrapperProtocol where WrappedType: UILabel {
+extension STKTypeWrapperProtocol where STKWrappedType: UILabel {
     
     // MARK: - 测算Label显示文字所需高度
     /// 测算Label显示文字所需高度
@@ -48,7 +48,7 @@ extension TypeWrapperProtocol where WrappedType: UILabel {
         paragraphStyle.lineSpacing = lineSpacing
         
         let attributedString: NSMutableAttributedString = NSMutableAttributedString(string: text)
-        wrappedValue.attributedText = attributedString
+        stkWrappedValue.attributedText = attributedString
         attributedString.addAttribute(.paragraphStyle,
                                       value: paragraphStyle,
                                       range: NSMakeRange(0, (text.count)))

@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-extension UIView: NamespaceWrappable {}
+extension UIView: STKNamespaceWrappable {}
 
 public extension UIView {
     

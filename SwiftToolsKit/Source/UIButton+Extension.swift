@@ -9,17 +9,17 @@
 import Foundation
 import UIKit
 
-extension TypeWrapperProtocol where WrappedType: UIButton {
+extension STKTypeWrapperProtocol where STKWrappedType: UIButton {
     
     // MARK: - 文字图片置换方法 (左 title 右 image)
     /// 文字图片置换方法 (左 title 右 image) 在每次设置 title 和 image 之后调用
     public func leftTitleAndRightImageFits() {
-        let imageWidth = wrappedValue.imageView?.width
-        let labelWidth = wrappedValue.titleLabel?.width
+        let imageWidth = stkWrappedValue.imageView?.width
+        let labelWidth = stkWrappedValue.titleLabel?.width
         
         if let imageWidth = imageWidth, let labelWidth = labelWidth {
-            wrappedValue.imageEdgeInsets = UIEdgeInsets(top: 0, left: labelWidth, bottom: 0, right: -labelWidth)
-            wrappedValue.titleEdgeInsets = UIEdgeInsets(top: 0, left: -imageWidth, bottom: 0, right: imageWidth)
+            stkWrappedValue.imageEdgeInsets = UIEdgeInsets(top: 0, left: labelWidth, bottom: 0, right: -labelWidth)
+            stkWrappedValue.titleEdgeInsets = UIEdgeInsets(top: 0, left: -imageWidth, bottom: 0, right: imageWidth)
         }
     }
     
@@ -33,14 +33,14 @@ extension TypeWrapperProtocol where WrappedType: UIButton {
     ///
     /// - Parameter space: title 与 image 之间的距离
     public func topImageAndBottomTitleFitsWith(space: CGFloat) {
-        let imageSize = wrappedValue.imageView?.frame.size
-        let titleSize = wrappedValue.titleLabel?.frame.size
+        let imageSize = stkWrappedValue.imageView?.frame.size
+        let titleSize = stkWrappedValue.titleLabel?.frame.size
         
         if let imageSize = imageSize, let titleSize = titleSize {
             let totalHeight = (imageSize.height + titleSize.height + space)
             
-            wrappedValue.titleEdgeInsets = UIEdgeInsets(top: -(totalHeight - imageSize.height), left: -imageSize.width, bottom: 0, right: 0)
-            wrappedValue.imageEdgeInsets = UIEdgeInsets(top: titleSize.height, left: titleSize.width, bottom: 0, right: 0)
+            stkWrappedValue.titleEdgeInsets = UIEdgeInsets(top: -(totalHeight - imageSize.height), left: -imageSize.width, bottom: 0, right: 0)
+            stkWrappedValue.imageEdgeInsets = UIEdgeInsets(top: titleSize.height, left: titleSize.width, bottom: 0, right: 0)
         }
     }
 }
