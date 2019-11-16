@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
 	spec.name         = "SwiftToolsKit"
-	spec.version      = "0.0.2"
+	spec.version      = "0.0.3"
 	spec.summary      = "SwiftToolsKit makes code in Swift easy to use."
 	spec.homepage     = "https://github.com/diaodepeng/SwiftToolsKit"
 	spec.license      = { :type => "MIT" }
