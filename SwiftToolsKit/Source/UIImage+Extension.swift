@@ -13,38 +13,19 @@ extension UIImage: STKNamespaceWrappable { }
 
 extension STKTypeWrapperProtocol where STKWrappedType: UIImage {
     
-    // MARK: - 根据颜色创建图片
-    
-    /// 根据颜色创建图片
-    ///
-    /// - Parameter color: 颜色
-    /// - Returns: 创建的图片
-    public static func createImage(with color: UIColor) -> UIImage? {
-        let rect = CGRect(x: 0.0, y: 0.0, width: 1.0, height: 1.0)
-        UIGraphicsBeginImageContext(rect.size)
-        
-        let context = UIGraphicsGetCurrentContext()
-        context?.setFillColor(color.cgColor)
-        context?.fill(rect)
-        
-        let theImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return theImage
-    }
-    
-    
     /// 根据颜色创建图片
     ///
     /// - Parameters:
     ///   - color: 颜色
     ///   - rect: 范围
     /// - Returns: 创建的图片
-    public static func createImage(with color: UIColor, rect: CGRect) -> UIImage? {
-        UIGraphicsBeginImageContext(rect.size)
+    public static func createImage(with color: UIColor, _ rect: CGRect? = nil) -> UIImage? {
+        let newRect = (rect == nil) ? CGRect(x: 0.0, y: 0.0, width: 1.0, height: 1.0) : rect!
+        UIGraphicsBeginImageContext(newRect.size)
         
         let context = UIGraphicsGetCurrentContext()
         context?.setFillColor(color.cgColor)
-        context?.fill(rect)
+        context?.fill(newRect)
         
         let theImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()

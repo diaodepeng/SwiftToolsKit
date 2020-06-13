@@ -119,7 +119,7 @@ extension STKTypeWrapperProtocol where STKWrappedType == String {
     /// 通过下标Range截取字符串
     ///
     /// - Parameter r: 截取范围
-    public subscript (r: Range<Int>) -> String {
+    public subscript(r: Range<Int>) -> String {
         get {
             let startIndex = stkWrappedValue.index(stkWrappedValue.startIndex, offsetBy: r.lowerBound)
             let endIndex = stkWrappedValue.index(stkWrappedValue.startIndex, offsetBy: r.upperBound)

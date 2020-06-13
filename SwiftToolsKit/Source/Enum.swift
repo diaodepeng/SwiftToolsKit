@@ -8,7 +8,7 @@
 
 import Foundation
 
-// 日期格式枚举
+// 日期格式
 public enum DateFormatType: String {
     case normal             = "yyyy-MM-dd HH:mm:ss"
     case yyMdHm             = "yy-MM-dd HH:mm"

@@ -34,7 +34,8 @@ public func SYSTEM_VERSION() -> String {
 ///
 /// - Parameter number: 手机号
 /// - Returns: 验证结果
-public func checkIsPhoneNumber(_ number: String) -> Bool {
+public func isPhoneNumber(_ number: String) -> Bool {
+    
     /**
      * 手机号码:
      * 移动号段: 134(0-8)、135、136、137、138、139、147、150、151、152、157、158、159、172、178、182、183、184、187、188、198
@@ -47,16 +48,7 @@ public func checkIsPhoneNumber(_ number: String) -> Bool {
      * 卫星通信：1349
      */
     
-    let a = #"^((13[0-9])"#
-    let b = #"|(14[5,7,9])"#
-    let c = #"|(15([0-3]|[5-9]))"#
-    let d = #"|(166)"#
-    let e = #"|(17[0-3]|[5-8])"#
-    let f = #"|(18[0-9])"#
-    let g = #"|(19[8|9]))"#
-    let h = #"\d{8}$"#
-    
-    let pattern = [a, b, c, d, e, f, g, h].joined()
+    let pattern = #"^((13[0-9])|(14[5,7,9])|(15([0-3]|[5-9]))|(166)|(17[0-3]|[5-8])|(18[0-9])|(19[8|9]))\d{8}$"#
     let regextestmobile = NSPredicate(format: "SELF MATCHES %@", pattern)
-    return regextestmobile.evaluate(with: number) == true
+    return regextestmobile.evaluate(with: number)
 }
