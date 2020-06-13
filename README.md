@@ -8,7 +8,9 @@ pod 'SwiftToolsKit'
   
 ### Use
 
-******
+```
+import SwiftToolsKit
+```
   
 #### stk:
 
